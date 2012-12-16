@@ -12,7 +12,7 @@ int main(int argc, const char* argv[])
 {
 
 
-	ResourceLoader loader(argv[0] + std::string("\\..\\Resources"));
+	ResourceLoader loader(argv[0] + std::string("\\..\\..\\Resources"));
 	
 
 

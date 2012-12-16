@@ -170,6 +170,6 @@ Temp/
 JsonCPP(Old)/
 lib/
 
-!/Debug/
-/Debug/*
-!/Debug/Resources
+-!/Debug/
+-/Debug/*
+-!/Debug/Resources
