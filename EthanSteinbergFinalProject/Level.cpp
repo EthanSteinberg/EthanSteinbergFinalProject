@@ -3,13 +3,25 @@
 
 #include <SFML/Graphics.hpp>
 
-Level::Level(Json::Value metadata, const TileSet& tileSet)
+
+#include "DrawableImage.h"
+
+Level::Level(Json::Value metadata, const TileSet& tileSet, const sf::Image &flag) : flagImage(flag)
 {
 
 	Json::Value tiles = metadata["tiles"];
 	startX = metadata["startPosition"]["x"].asDouble();
 	startY = metadata["startPosition"]["y"].asDouble();
+	endX = metadata["endPosition"]["x"].asDouble();
+	endY = metadata["endPosition"]["y"].asDouble();
 
+
+	
+
+	
+
+	std::cout<<endX<<" flag "<<endY<<std::endl;
+	
 
 	for (unsigned int columnNum = 0; columnNum < tiles.size(); columnNum++)
 	{
@@ -30,14 +42,18 @@ Level::Level(Json::Value metadata, const TileSet& tileSet)
 		}
 	}
 
+
+
 }
 
 
-Level::Level(const Level& other)
+Level::Level(const Level& other) : flagImage(other.flagImage)
 {
 	spritesToDraw = other.spritesToDraw;
 	startX = other.startX;
 	startY = other.startY;
+	endX = other.endX;
+	endY = other.endY;
 
 	collisionBoxes = other.collisionBoxes;
 }
@@ -57,16 +73,34 @@ double Level::getStartY() const
 	return startY;
 }
 
+double Level::getEndX() const
+{
+	return endX;
+}
+
+double Level::getEndY() const
+{
+	return endY;
+}
+
 void Level::draw(sf::RenderTarget& target) const
 {
+
+
 	for (unsigned int i =0; i < spritesToDraw.size(); i++)
 	{
 		const sf::Sprite &sprite = spritesToDraw[i];
 		target.Draw(sprite);
 	}
+
+	flagImage.draw(target,endX,endY,0);
+
+	
 }
 
-std::vector<sf::FloatRect> Level::getCollisionBoxes() const
+
+
+const std::vector<sf::FloatRect>& Level::getCollisionBoxes() const
 {
 	return collisionBoxes;
 }

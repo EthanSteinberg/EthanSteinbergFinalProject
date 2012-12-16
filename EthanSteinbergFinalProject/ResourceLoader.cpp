@@ -109,7 +109,7 @@ ResourceLoader::ResourceLoader(std::string directory)
 		std::string tileSet = currentLevel["tileset"].asString();
 		
 
-		levelMap.insert(std::make_pair(currentLevel["name"].asString(),Level(metadata, getTileSet(tileSet))));
+		levelMap.insert(std::make_pair(currentLevel["name"].asString(),Level(metadata, getTileSet(tileSet),getImage("flag"))));
 
 	}
 
