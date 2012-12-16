@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LEVEL_H_INCLUDED
+#define LEVEL_H_INCLUDED
 
 #include "TileSet.h"
 #include <json/value.h>
@@ -42,4 +43,6 @@ private:
 	std::vector<Enemy*> enemyVector;
 
 };
+
+#endif
 

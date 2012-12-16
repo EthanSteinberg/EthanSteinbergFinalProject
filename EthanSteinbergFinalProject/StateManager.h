@@ -1,4 +1,5 @@
-#pragma once
+#ifndef STATE_MANAGER_H_INCLUDED
+#define STATE_MANAGER_H_INCLUDED
 
 #include <memory>
 #include "State.h"
@@ -21,3 +22,5 @@ public:
 private:
 	std::unique_ptr<State> myState;
 };
+
+#endif

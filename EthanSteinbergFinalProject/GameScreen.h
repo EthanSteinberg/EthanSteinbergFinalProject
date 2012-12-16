@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_SCREEN_H_INCLUDED
+#define GAME_SCREEN_H_INCLUDED
 
 #include "State.h"
 #include "ResourceLoader.h"
@@ -30,3 +31,5 @@ private:
 
 	
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TILE_SET_H_INCLUDED
+#define TILE_SET_H_INCLUDED
 
 #include <json\value.h>
 #include <SFML\Graphics\Image.hpp>
@@ -21,3 +22,4 @@ private:
 
 };
 
+#endif

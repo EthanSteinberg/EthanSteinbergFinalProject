@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SIMPLE_ENEMY_H_INCLUDED
+#define SIMPLE_ENEMY_H_INCLUDED
 
 #include "Enemy.h"
 
@@ -26,3 +27,5 @@ private:
 	double xVel;
 	bool dead;
 };
+
+#endif

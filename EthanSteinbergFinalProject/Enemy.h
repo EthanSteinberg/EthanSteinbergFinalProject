@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENEMY_H_INCLUDED
+#define ENEMY_H_INCLUDED
 
 #include "GameObject.h"
 
@@ -10,3 +11,5 @@ public:
 
 	static Enemy* createEnemy(std::string type, double x, double y);
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOSE_SCREEN_H_INCLUDED
+#define LOSE_SCREEN_H_INCLUDED
 
 #include "State.h"
 #include "ResourceLoader.h"
@@ -19,3 +20,5 @@ private:
 
 	
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MISSILE_H_INCLUDED
+#define MISSILE_H_INCLUDED
 
 #include "GameObject.h"
 
@@ -26,3 +27,4 @@ private:
 	bool dead;
 };
 
+#endif

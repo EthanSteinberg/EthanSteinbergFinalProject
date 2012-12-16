@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H_INCLUDED
+#define PLAYER_H_INCLUDED
 
 #include <SFML/Graphics.hpp>
 
@@ -34,3 +35,4 @@ private:
 	int movingDirection;
 };
 
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DRAWABLE_IMAGE_H_INCLUDED
+#define DRAWABLE_IMAGE_H_INCLUDED
 
 #include <SFML/Graphics/Image.hpp>
 #include <SFML/Graphics.hpp>
@@ -15,3 +16,4 @@ private:
 
 };
 
+#endif

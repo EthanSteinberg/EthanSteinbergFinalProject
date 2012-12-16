@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MENU_SCREEN_H_INCLUDED
+#define MENU_SCREEN_H_INCLUDED
+
 #include "state.h"
 
 #include <SFML/Graphics.hpp>
@@ -25,3 +27,4 @@ private:
 	
 };
 
+#endif

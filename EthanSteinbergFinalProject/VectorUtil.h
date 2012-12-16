@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VECTOR_UTIL_H_INCLUDED
+#define VECTOR_UTIL_H_INCLUDED
 
 #include <SFML/System/Vector2.hpp>
 #include <cmath>
@@ -98,3 +99,5 @@ inline bool MyRectIntersection(sf::FloatRect one, sf::FloatRect other)
 
 
 const double PI = 3.14;
+
+#endif

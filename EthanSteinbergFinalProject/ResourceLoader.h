@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RESOURCE_LOADER_H_INCLUDED
+#define RESOURCE_LOADER_H_INCLUDED
 
 #include <string>
 #include <map>
@@ -30,3 +31,4 @@ private:
 
 };
 
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_OBJECT_H_INCLUDED
+#define GAME_OBJECT_H_INCLUDED
 
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -83,3 +84,5 @@ public:
 
 };
 
+
+#endif
