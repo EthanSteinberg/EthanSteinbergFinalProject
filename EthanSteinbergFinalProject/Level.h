@@ -24,6 +24,8 @@ public:
 
 	const std::vector<Enemy*> & getEnemies() const;
 
+	void update(double time) const;
+
 private:
 	std::vector<sf::Sprite> spritesToDraw;
 	double startX;

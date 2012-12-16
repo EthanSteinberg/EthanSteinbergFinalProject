@@ -115,21 +115,30 @@ void Level::draw(sf::RenderTarget& target, ResourceLoader& loader) const
 
 	for (unsigned int i = 0; i < enemyVector.size(); i++)
 	{
-		enemyVector[i]->draw(target,loader);
-		std::cout<<enemyVector[i]->getX()<<std::endl;
+		if (!enemyVector[i]->isDead())
+			enemyVector[i]->draw(target,loader);
 	}
 
 	
 }
 
 
+void Level::update(double time) const
+{
+
+	for (unsigned int i = 0; i < enemyVector.size(); i++)
+	{
+		if (!enemyVector[i]->isDead())
+			enemyVector[i]->update(time,*this);
+	}
+}
 
 const std::vector<sf::FloatRect>& Level::getCollisionBoxes() const
 {
 	return collisionBoxes;
 }
 
-const std::vector<Enemy*>& Level::getEnemies() const
+const std::vector<Enemy*>& Level::getEnemies()  const
 {
 	return enemyVector;
 }

@@ -12,6 +12,10 @@ public:
 	virtual double getY() const;
 	virtual double getHeight() const ;
 	virtual double getWidth() const ;
+	virtual bool isDead() const;
+
+	virtual void kill();
+
 
 	virtual void update(double time, const Level &currentLevel);
 	virtual SimpleEnemy* clone() const;
@@ -19,4 +23,6 @@ public:
 private:
 	double xPos;
 	double yPos;
+	double xVel;
+	bool dead;
 };

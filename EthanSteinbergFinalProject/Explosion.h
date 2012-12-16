@@ -16,7 +16,7 @@ public:
 	virtual double getWidth() const { return 160/64.0;}
 
 
-	virtual void update(double time, const Level& currentLevel){timeDrawn+=time; if(timeDrawn >= 2) dead = true;}
+	virtual void update(double time, const Level& currentLevel){timeDrawn+=time; if(timeDrawn >= .25) dead = true;}
 
 	virtual std::string getImageName() const
 	{ return "boom";}

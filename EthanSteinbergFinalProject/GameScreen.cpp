@@ -26,15 +26,9 @@ GameScreen::~GameScreen(void)
 }
 
 
-bool shouldKillMissile(const Missile& mil)
+bool shouldKillGameObject(const GameObject& obj)
 {
-		return mil.isDead();
-}
-
-
-bool shouldKillExplosion(const Explosion& mil)
-{
-		return mil.isDead();
+		return obj.isDead();
 }
 
 double rotation = 0;
@@ -42,6 +36,8 @@ void GameScreen::update(double time, StateManager& manager)
 {
 	p.update(time,*currentLevel);
 	
+	currentLevel->update(time);
+
 	for ( unsigned int i =0; i < missiles.size(); i++)
 	{
 		Missile &mis  = missiles[i];
@@ -61,7 +57,7 @@ void GameScreen::update(double time, StateManager& manager)
 	}
 
 		
-	missiles.erase(std::remove_if(missiles.begin(),missiles.end(),shouldKillMissile),missiles.end());
+	missiles.erase(std::remove_if(missiles.begin(),missiles.end(),shouldKillGameObject),missiles.end());
 	
 
 	for ( unsigned int i =0; i < explosions.size(); i++)
@@ -71,7 +67,40 @@ void GameScreen::update(double time, StateManager& manager)
 	}
 
 
-	explosions.erase(std::remove_if(explosions.begin(),explosions.end(),shouldKillExplosion),explosions.end());
+	explosions.erase(std::remove_if(explosions.begin(),explosions.end(),shouldKillGameObject),explosions.end());
+
+
+	
+	for (unsigned int enemy = 0; enemy < currentLevel->getEnemies().size() ; enemy++)
+	{
+		Enemy* enemyPointer = currentLevel->getEnemies()[enemy];
+		if (enemyPointer->isDead())
+			continue;
+
+		for (unsigned int ex = 0; ex < explosions.size(); ex++)
+		{
+		
+			const Explosion &explosion = explosions[ex];
+
+			if (MyRectIntersection(explosion.getCollisionBox(),enemyPointer->getCollisionBox()))
+				enemyPointer->kill();
+		}
+	}
+
+	for (unsigned int enemy = 0; enemy < currentLevel->getEnemies().size() ; enemy++)
+	{
+
+		Enemy* enemyPointer = currentLevel->getEnemies()[enemy];
+
+		if (enemyPointer->isDead())
+			continue;
+
+		if (MyRectIntersection(p.getCollisionBox(),enemyPointer->getCollisionBox()))
+		{
+			std::cout<<"I lost??"<<std::endl;
+		}
+	}
+
 
 
 
