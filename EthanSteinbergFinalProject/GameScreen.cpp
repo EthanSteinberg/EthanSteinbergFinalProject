@@ -66,7 +66,12 @@ void GameScreen::update(double time, StateManager& manager)
 	}
 
 
-		explosions.erase(std::remove_if(explosions.begin(),explosions.end(),shouldKillExplosion),explosions.end());
+	explosions.erase(std::remove_if(explosions.begin(),explosions.end(),shouldKillExplosion),explosions.end());
+
+
+
+	if (MyRectIntersection(p.getCollisionBox(),sf::FloatRect(currentLevel->getEndX(),currentLevel->getEndY() + 2,currentLevel->getEndX() + 1, currentLevel->getEndY())))
+		std::cout<<"I win??"<<std::endl;
 	
 }
 

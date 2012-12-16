@@ -84,5 +84,17 @@ inline bool colliding(sf::FloatRect first, sf::FloatRect second, double angleOfS
 
 }
 
+inline bool MyRectIntersection(sf::FloatRect one, sf::FloatRect other)
+{
+	sf::FloatRect Overlapping(std::max(one.Left,   other.Left),
+                     std::min(one.Top,    other.Top),
+                     std::min(one.Right,  other.Right),
+                     std::max(one.Bottom, other.Bottom));
+
+			if ((  Overlapping.Right > Overlapping.Left ) && (  Overlapping.Top  >  Overlapping.Bottom))
+				return true;
+			return false;
+}
+
 
 const double PI = 3.14;
