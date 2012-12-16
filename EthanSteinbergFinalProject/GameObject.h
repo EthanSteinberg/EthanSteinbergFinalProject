@@ -45,13 +45,13 @@ public:
 	{
 
 
-		sf::Shape rectangle = sf::Shape::Rectangle(getX() * 64,(12 - getY()) * 64, (getX() + getWidth()) * 64, (12 - getY() - getHeight()) * 64,sf::Color(0,0,0,0),2,sf::Color::Green);
+		sf::Shape rectangle = sf::Shape::Rectangle((float) getX() * 64, (float) (12 - getY()) * 64, (float) (getX() + getWidth()) * 64, (float) (12 - getY() - getHeight()) * 64,sf::Color(0,0,0,0),2,sf::Color::Green);
 		target.Draw(rectangle);
 	}
 
 	sf::FloatRect getCollisionBox() const
 	{
-		return sf::FloatRect(getX(), getY() + getHeight(), getX()  + getWidth(), getY());
+		return sf::FloatRect((float) getX(),  (float) (getY() + getHeight()), (float) (getX()  + getWidth()), (float) getY());
 	}
 
 	bool intersectingWithWorld(const Level& currentLevel) const

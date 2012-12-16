@@ -21,10 +21,10 @@ Level::Level(Json::Value metadata, const TileSet& tileSet)
 			{
 				sf::Sprite aSprite = tileSet.getTile(tileId);
 
-				aSprite.SetPosition(columnNum * 64, rowNum * 64);
+				aSprite.SetPosition( columnNum * 64.0f, rowNum * 64.0f);
 				this->spritesToDraw.push_back(aSprite);
 
-				collisionBoxes.push_back(sf::FloatRect(columnNum, (12 - rowNum), columnNum + 1, (11 - rowNum)));
+				collisionBoxes.push_back(sf::FloatRect( (float) columnNum, (float) (12 - rowNum),  (float) columnNum + 1, (float) (11 - rowNum)));
 				
 			}
 		}

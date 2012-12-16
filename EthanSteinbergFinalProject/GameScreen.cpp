@@ -49,7 +49,8 @@ void GameScreen::update(double time, StateManager& manager)
 		const Missile &mis  = missiles[i];
 		if (mis.isDead())
 		{
-			explosions.push_back(Explosion(mis.getX(),mis.getY()));
+			sf::Vector2f explosionPosition = sf::Vector2f((float) mis.getX(), (float) mis.getY()) + rotateVector(sf::Vector2f( (float) mis.getWidth()/2, (float) mis.getHeight()/2),mis.getRotation()) - sf::Vector2f(160/64.0f * .5f, 120/64.0f * .5f)  ;
+			explosions.push_back(Explosion(explosionPosition.x,explosionPosition.y));
 		}
 
 	}
@@ -78,7 +79,7 @@ void GameScreen::draw(sf::RenderTarget &target) const
 
 
 	target.Clear(sf::Color(135,206,250));
-	target.SetView(sf::View(sf::Vector2f(p.getX() * 64,(10 - p.getY()) * 64),sf::Vector2f(768/2,768/2)));
+	target.SetView(sf::View(sf::Vector2f( (float) p.getX() * 64, (float) (10 - p.getY()) * 64),sf::Vector2f(768/2,768/2)));
 
 
 	
@@ -124,7 +125,7 @@ void GameScreen::draw(sf::RenderTarget &target) const
 
 	sf::Vector2f amountToMoveImage = offsetToHand - rotatedOffsetToHandle;
 
-	sf::Vector2f totalPosition = amountToMoveImage + sf::Vector2f(p.getX(),p.getY());
+	sf::Vector2f totalPosition = amountToMoveImage + sf::Vector2f((float) p.getX(),(float) p.getY());
 	
 
 	gun.draw(target,totalPosition.x,totalPosition.y,rad);
@@ -164,13 +165,13 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 		case sf::Key::A:
 			p.setMovingLeft(true);
 			break;
-		case sf::Key::D:
+		case sf::Key::S:
 			p.setMovingRight(true);
 			break;
 		case sf::Key::W:
 			p.jump();
 			break;
-		case sf::Key::S:
+		case sf::Key::R:
 			
 			break;
 		}
@@ -182,7 +183,7 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 		case sf::Key::A:
 			p.setMovingLeft(false);
 			break;
-		case sf::Key::D:
+		case sf::Key::S:
 			p.setMovingRight(false);
 			break;
 		}
@@ -202,12 +203,12 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 			sf::Vector2f offsetToHand = (resourceLoader.getImageSpecialData("player").find("offsetToHand")->second) / 64.0f;
 			//std::cout<<realX<<" "<<realY<<std::endl;
 
-			offsetToHand += sf::Vector2f(p.getX(),p.getY());
+			offsetToHand += sf::Vector2f((float) p.getX(), (float) p.getY());
 
-			sf::Vector2f realVec(realX,realY);
+			sf::Vector2f realVec((float)realX,(float)realY);
 			sf::Vector2f distance = realVec - offsetToHand;
 
-			sf::Vector2f mousePosition(realX,realY);
+			sf::Vector2f mousePosition((float)realX, (float) realY);
 
 			
 			double rad = findAngle(mousePosition - offsetToHand, ( (resourceLoader.getImageSpecialData("gun").find("offsetToStartOfBarrel")->second) / 64.0f) - (resourceLoader.getImageSpecialData("gun").find("offsetToGrip")->second) / 64.0f);
@@ -231,7 +232,7 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 
 			sf::Vector2f offsetToEnd = (resourceLoader.getImageSpecialData("missile").find("offsetToEnd")->second) / 64.0f;
 
-			sf::Vector2f missilePosition = sf::Vector2f(p.getX(),p.getY()) + offsetToHand + rotateVector(offsetToEndOfBarrel - offsetToHandle,rad) -rotateVector(offsetToEnd,rad);
+			sf::Vector2f missilePosition = sf::Vector2f((float) p.getX(), (float) p.getY()) + offsetToHand + rotateVector(offsetToEndOfBarrel - offsetToHandle,rad) -rotateVector(offsetToEnd,rad);
 		
 			if (!_isnan(rad))
 				missiles.push_back(Missile(missilePosition.x,missilePosition.y,rad));

@@ -8,7 +8,7 @@
 MenuScreen::MenuScreen(ResourceLoader &l) : resourceLoader(l)
 {
 
-	enterGameRect = sf::FloatRect(171.143,800 - (491.714 + 107.143),171.143+470.000,800 - (491.714));
+	enterGameRect = sf::FloatRect(171.143f,800 - (491.714f + 107.143f),171.143f+470.000f,800 - (491.714f));
 }
 
 
@@ -22,7 +22,7 @@ void MenuScreen::handleEvent(const sf::Event& anEvent, StateManager &manager)
 	{
 	case sf::Event::MouseButtonPressed:
 		std::cout<<anEvent.MouseButton.X<<" "<<anEvent.MouseButton.Y<<std::endl;
-		if (enterGameRect.Contains(anEvent.MouseButton.X,anEvent.MouseButton.Y))
+		if (enterGameRect.Contains((float) anEvent.MouseButton.X, (float) anEvent.MouseButton.Y))
 		{
 			std::cout<<"It is inside the box"<<std::endl;
 			manager.setState(std::unique_ptr<GameScreen>(new GameScreen(resourceLoader)));
@@ -42,7 +42,7 @@ void MenuScreen::draw(sf::RenderTarget &target) const
 
 	sf::Sprite quitGame;
 	quitGame.SetImage(resourceLoader.getImage("menuQuitButton"));
-	quitGame.SetPosition(174.714,800 - (206.429 + 107.143));
+	quitGame.SetPosition(174.714f,800 - (206.429f + 107.143f));
 
 	target.Draw(quitGame);
 
