@@ -8,6 +8,10 @@
 
 #include "VectorUtil.h"
 
+#include "StateManager.h"
+#include "WinScreen.h"
+
+
 GameScreen::GameScreen(ResourceLoader& loader)  : resourceLoader(loader)
 {
 	currentLevel = &resourceLoader.getLevel("testLevel");
@@ -71,7 +75,11 @@ void GameScreen::update(double time, StateManager& manager)
 
 
 	if (MyRectIntersection(p.getCollisionBox(),sf::FloatRect(currentLevel->getEndX(),currentLevel->getEndY() + 2,currentLevel->getEndX() + 1, currentLevel->getEndY())))
+	{
 		std::cout<<"I win??"<<std::endl;
+		manager.setState(std::unique_ptr<WinScreen>(new WinScreen(resourceLoader)));
+	}
+		
 	
 }
 
@@ -170,13 +178,13 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 		case sf::Key::A:
 			p.setMovingLeft(true);
 			break;
-		case sf::Key::S:
+		case sf::Key::D:
 			p.setMovingRight(true);
 			break;
 		case sf::Key::W:
 			p.jump();
 			break;
-		case sf::Key::R:
+		case sf::Key::S:
 			
 			break;
 		}
@@ -188,7 +196,7 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 		case sf::Key::A:
 			p.setMovingLeft(false);
 			break;
-		case sf::Key::S:
+		case sf::Key::D:
 			p.setMovingRight(false);
 			break;
 		}

@@ -77,6 +77,7 @@
     <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TileSet.cpp" />
+    <ClCompile Include="WinScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawableImage.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="VectorUtil.h" />
+    <ClInclude Include="WinScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

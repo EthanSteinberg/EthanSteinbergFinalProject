@@ -26,5 +26,7 @@ private:
 	std::vector<Missile> missiles;
 	std::vector<Explosion> explosions;
 
+	sf::View oldView;
+
 	
 };
