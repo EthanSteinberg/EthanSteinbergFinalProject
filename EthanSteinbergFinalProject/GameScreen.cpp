@@ -10,8 +10,10 @@
 
 #include "StateManager.h"
 #include "WinScreen.h"
+#include "LoseScreen.h"
 
-#include "SimpleEnemy.h"
+#include "Enemy.h"
+
 
 GameScreen::GameScreen(ResourceLoader& loader)  : resourceLoader(loader)
 {
@@ -98,6 +100,8 @@ void GameScreen::update(double time, StateManager& manager)
 		if (MyRectIntersection(p.getCollisionBox(),enemyPointer->getCollisionBox()))
 		{
 			std::cout<<"I lost??"<<std::endl;
+			manager.setState(std::unique_ptr<LoseScreen>(new LoseScreen(resourceLoader)));
+			return;
 		}
 	}
 

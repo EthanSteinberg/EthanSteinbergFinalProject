@@ -71,6 +71,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LoseScreen.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="Missile.cpp" />
@@ -88,6 +89,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LoseScreen.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Player.h" />
