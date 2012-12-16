@@ -3,15 +3,12 @@
 
 TileSet::TileSet(Json::Value metadata, sf::Image& myImage)
 {
-	
-	std::cout<<metadata.toStyledString()<<std::endl;
 
 	myImage.SetSmooth(false);
 
 	for (auto iter = metadata.begin(); iter != metadata.end() ;iter++)
 	{
-		std::cout<<(*iter).toStyledString()<<std::endl;
-
+		
 		Json::Value tileData = *iter;
 
 		sf::IntRect rect(tileData["x"].asInt(), tileData["y"].asInt(), tileData["x"].asInt() + 64, tileData["y"].asInt()+64);

@@ -15,7 +15,7 @@ ResourceLoader::ResourceLoader(std::string directory)
 
 	
 	std::string pathToDirectory(directory);
-	std::cout<<pathToDirectory<<std::endl;
+	
 
 	std::ifstream indexFile(pathToDirectory  + "\\index.json");
 
@@ -29,7 +29,7 @@ ResourceLoader::ResourceLoader(std::string directory)
 		std::cout<< "Parsing of JSON failed"<<std::endl;
 
 
-	std::cout<<root<<std::endl;
+	
 	
 	indexFile.close();
 

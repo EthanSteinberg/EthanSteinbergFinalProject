@@ -99,7 +99,7 @@ void GameScreen::update(double time, StateManager& manager)
 
 		if (MyRectIntersection(p.getCollisionBox(),enemyPointer->getCollisionBox()))
 		{
-			std::cout<<"I lost??"<<std::endl;
+			
 			manager.setState(std::unique_ptr<LoseScreen>(new LoseScreen(resourceLoader)));
 			return;
 		}
@@ -110,7 +110,7 @@ void GameScreen::update(double time, StateManager& manager)
 
 	if (MyRectIntersection(p.getCollisionBox(),sf::FloatRect( (float) currentLevel->getEndX(),(float) currentLevel->getEndY() + 2, (float) currentLevel->getEndX() + 1, (float) currentLevel->getEndY())))
 	{
-		std::cout<<"I win??"<<std::endl;
+		
 		manager.setState(std::unique_ptr<WinScreen>(new WinScreen(resourceLoader)));
 	}
 		
@@ -247,7 +247,7 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 		
 
 			sf::Vector2f offsetToHand = (resourceLoader.getImageSpecialData("player").find("offsetToHand")->second) / 64.0f;
-			//std::cout<<realX<<" "<<realY<<std::endl;
+	
 
 			offsetToHand += sf::Vector2f((float) p.getX(), (float) p.getY());
 
@@ -259,7 +259,6 @@ void GameScreen::handleEvent(const sf::Event& anEvent,StateManager &manager)
 			
 			double rad = findAngle(mousePosition - offsetToHand, ( (resourceLoader.getImageSpecialData("gun").find("offsetToStartOfBarrel")->second) / 64.0f) - (resourceLoader.getImageSpecialData("gun").find("offsetToGrip")->second) / 64.0f);
 
-			//std::cout<<(rad * 180/pi)<<std::endl;
 			rotation = rad*180/PI;
 		}
 		break;

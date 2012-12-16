@@ -21,10 +21,10 @@ void MenuScreen::handleEvent(const sf::Event& anEvent, StateManager &manager)
 	switch(anEvent.Type)
 	{
 	case sf::Event::MouseButtonPressed:
-		std::cout<<anEvent.MouseButton.X<<" "<<anEvent.MouseButton.Y<<std::endl;
+		
 		if (enterGameRect.Contains((float) anEvent.MouseButton.X, (float) anEvent.MouseButton.Y))
 		{
-			std::cout<<"It is inside the box"<<std::endl;
+	
 			manager.setState(std::unique_ptr<GameScreen>(new GameScreen(resourceLoader)));
 		}
 	}

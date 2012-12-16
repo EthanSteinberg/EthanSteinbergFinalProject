@@ -17,12 +17,6 @@ Level::Level(Json::Value metadata, const TileSet& tileSet, const sf::Image &flag
 
 
 	
-
-	
-
-	std::cout<<endX<<" flag "<<endY<<std::endl;
-	
-
 	for (unsigned int columnNum = 0; columnNum < tiles.size(); columnNum++)
 	{
 		Json::Value column = tiles[columnNum];
