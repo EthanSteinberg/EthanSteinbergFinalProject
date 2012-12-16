@@ -1,0 +1,83 @@
+
+{
+	"image" : 
+	[
+		
+		{
+			"info" : {},
+			"location" : "gameStartButton.png",
+			"name" : "gameStartButton"
+		},
+		
+		{
+			"info" : {},
+			"location" : "menuQuitButton.png",
+			"name" : "menuQuitButton"
+		},
+		
+		{
+			"info" : 
+			{
+				"offsetToHand" : [ 57, 66 ]
+			},
+			"location" : "player.png",
+			"name" : "player"
+		},
+		
+		{
+			"info" : 
+			{
+				"offsetToEndOfBarrel" : [ 61, 25 ],
+				"offsetToGrip" : [ 12, 15 ],
+				"offsetToStartOfBarrel" : [ 20, 25 ]
+			},
+			"location" : "gun.png",
+			"name" : "gun"
+		},
+		
+		{
+			"info" : 
+			{
+				"offsetToEnd" : [ 3, 12 ]
+			},
+			"location" : "missileScaled.png",
+			"name" : "missile"
+		},
+		
+		{
+			"info" : {},
+			"location" : "boom.png",
+			"name" : "boom"
+		},
+		
+		{
+			"info" : {},
+			"location" : "metalTileSet.png",
+			"name" : "metalTileSet"
+		},
+		
+		{
+			"info" : {},
+			"location" : "flag.png",
+			"name" : "flag"
+		}
+	],
+	"level" : 
+	[
+		
+		{
+			"name" : "testLevel",
+			"tiles" : "myFirstLevel.json",
+			"tileset" : "metalTileSet"
+		}
+	],
+	"tileset" : 
+	[
+		
+		{
+			"image" : "metalTileSet",
+			"metadata" : "metalTileSet.json",
+			"name" : "metalTileSet"
+		}
+	]
+}

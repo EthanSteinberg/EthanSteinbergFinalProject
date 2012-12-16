@@ -164,8 +164,12 @@ pip-log.txt
 
 
 
-SFML-1.6
-jsoncpp-src-0.6.0-rc2
-Temp
-JsonCPP(Old)
-lib
+SFML-1.6/
+jsoncpp-src-0.6.0-rc2/
+Temp/
+JsonCPP(Old)/
+lib/
+
+!/Debug/
+/Debug/*
+!/Debug/Resources
