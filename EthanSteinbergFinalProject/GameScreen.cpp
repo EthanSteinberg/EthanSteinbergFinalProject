@@ -74,7 +74,7 @@ void GameScreen::update(double time, StateManager& manager)
 
 
 
-	if (MyRectIntersection(p.getCollisionBox(),sf::FloatRect(currentLevel->getEndX(),currentLevel->getEndY() + 2,currentLevel->getEndX() + 1, currentLevel->getEndY())))
+	if (MyRectIntersection(p.getCollisionBox(),sf::FloatRect( (float) currentLevel->getEndX(),(float) currentLevel->getEndY() + 2, (float) currentLevel->getEndX() + 1, (float) currentLevel->getEndY())))
 	{
 		std::cout<<"I win??"<<std::endl;
 		manager.setState(std::unique_ptr<WinScreen>(new WinScreen(resourceLoader)));
