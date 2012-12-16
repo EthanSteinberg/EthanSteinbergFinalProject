@@ -112,7 +112,7 @@ void GameScreen::draw(sf::RenderTarget &target) const
 	
 
 	
-	currentLevel->draw(target);
+	currentLevel->draw(target,resourceLoader);
 
 	for ( unsigned int i =0; i < currentLevel->getCollisionBoxes().size(); i++)
 	{
@@ -143,12 +143,6 @@ void GameScreen::draw(sf::RenderTarget &target) const
 	
 
 	gun.draw(target,totalPosition.x,totalPosition.y,rad);
-
-
-	
-	SimpleEnemy foo(0,0);
-	foo.draw(target,resourceLoader);
-
 }
 
 
@@ -156,7 +150,7 @@ void GameScreen::draw(sf::RenderTarget &target) const
 double findAngle(sf::Vector2f target, sf::Vector2f offset)
 {
 	for (double angle = -PI; angle <  PI; angle += 1)
-	{
+	{	
 		sf::Vector2f rotated = rotateVector(offset,angle);
 		sf::Vector2f diff = target - rotated;
 		double newAngle = atan2(diff.y, diff.x);

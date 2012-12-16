@@ -2,11 +2,11 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
-
+#include "Enemy.h"
 
 #include "DrawableImage.h"
 
-Level::Level(Json::Value metadata, const TileSet& tileSet, const sf::Image &flag) : flagImage(flag)
+Level::Level(Json::Value metadata, const TileSet& tileSet, const sf::Image &flag) : flagImage(flag) 
 {
 
 	Json::Value tiles = metadata["tiles"];
@@ -42,6 +42,15 @@ Level::Level(Json::Value metadata, const TileSet& tileSet, const sf::Image &flag
 		}
 	}
 
+	Json::Value enemies = metadata["enemies"];
+
+	for (unsigned int i = 0; i < enemies.size(); i++)
+	{
+		Json::Value enemy = enemies[i];
+
+		enemyVector.push_back(Enemy::createEnemy(enemy["type"].asString(), enemy["x"].asDouble(), enemy["y"].asDouble()));
+	}
+
 
 
 }
@@ -56,10 +65,19 @@ Level::Level(const Level& other) : flagImage(other.flagImage)
 	endY = other.endY;
 
 	collisionBoxes = other.collisionBoxes;
+
+	for (unsigned int i = 0; i < other.enemyVector.size(); i++)
+	{
+		enemyVector.push_back(other.enemyVector[i]->clone());
+	}
 }
 
 Level::~Level(void)
 {
+	for (unsigned int i =0 ; i < enemyVector.size(); i++)
+	{
+		delete enemyVector[i];
+	}
 }
 
 
@@ -83,7 +101,7 @@ double Level::getEndY() const
 	return endY;
 }
 
-void Level::draw(sf::RenderTarget& target) const
+void Level::draw(sf::RenderTarget& target, ResourceLoader& loader) const
 {
 
 
@@ -95,6 +113,12 @@ void Level::draw(sf::RenderTarget& target) const
 
 	flagImage.draw(target,endX,endY,0);
 
+	for (unsigned int i = 0; i < enemyVector.size(); i++)
+	{
+		enemyVector[i]->draw(target,loader);
+		std::cout<<enemyVector[i]->getX()<<std::endl;
+	}
+
 	
 }
 
@@ -103,4 +127,9 @@ void Level::draw(sf::RenderTarget& target) const
 const std::vector<sf::FloatRect>& Level::getCollisionBoxes() const
 {
 	return collisionBoxes;
+}
+
+const std::vector<Enemy*>& Level::getEnemies() const
+{
+	return enemyVector;
 }

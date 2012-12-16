@@ -30,7 +30,7 @@ void WinScreen::draw(sf::RenderTarget &target) const
 	winText.SetFont(sf::Font::GetDefaultFont());
 	winText.SetSize(40);
 
-	sf::String credits("Credits:\n Nicholas Ireland (AKA Loki_god_of_malice) - Awsome gun drawing\n Daniel Maland (AKA dmaland) - Cool missile graphic\n Random other people - Explosion image, tile set, and flag\n Me - Majestic stick figure");
+	sf::String credits("Art Credits:\n Nicholas Ireland (AKA Loki_god_of_malice) - Awsome gun drawing\n Daniel Maland (AKA dmaland) - Cool missile graphic\n Random other people - Explosion image, tile set, and flag\n Paulina (AKA YourLoveForever) - Interesting pacman ghost \n Me - Majestic stick figure");
 	credits.SetPosition(50,768/2-100 + 100);
 	credits.SetColor(sf::Color::Black);
 	credits.SetFont(sf::Font::GetDefaultFont());
