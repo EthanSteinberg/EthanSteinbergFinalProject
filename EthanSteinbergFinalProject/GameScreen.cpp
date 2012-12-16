@@ -11,6 +11,7 @@
 #include "StateManager.h"
 #include "WinScreen.h"
 
+#include "SimpleEnemy.h"
 
 GameScreen::GameScreen(ResourceLoader& loader)  : resourceLoader(loader)
 {
@@ -142,6 +143,11 @@ void GameScreen::draw(sf::RenderTarget &target) const
 	
 
 	gun.draw(target,totalPosition.x,totalPosition.y,rad);
+
+
+	
+	SimpleEnemy foo(0,0);
+	foo.draw(target,resourceLoader);
 
 }
 

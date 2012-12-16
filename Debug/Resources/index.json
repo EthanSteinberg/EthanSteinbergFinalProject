@@ -60,6 +60,12 @@
 			"info" : {},
 			"location" : "flag.png",
 			"name" : "flag"
+		},
+		
+		{
+			"info" : {},
+			"location" : "Ghost.png",
+			"name" : "ghost"
 		}
 	],
 	"level" : 
@@ -79,5 +85,5 @@
 			"metadata" : "metalTileSet.json",
 			"name" : "metalTileSet"
 		}
-	]
+	]	
 }

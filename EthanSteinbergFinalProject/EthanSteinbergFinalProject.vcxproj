@@ -66,6 +66,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DrawableImage.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScreen.cpp" />
@@ -75,12 +76,14 @@
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
+    <ClCompile Include="SimpleEnemy.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="WinScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawableImage.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScreen.h" />
@@ -89,6 +92,7 @@
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ResourceLoader.h" />
+    <ClInclude Include="SimpleEnemy.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="TileSet.h" />
